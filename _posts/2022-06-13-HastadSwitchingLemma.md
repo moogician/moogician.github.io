@@ -12,19 +12,18 @@ categories: classic-tools
 ## Håstad's Switching Lemma
 
 ### General Idea
-A general two-level circuit can be seen as either a $CNF$ or a $DNF$. 
-If the fan-in is restricted, then the circuit becomes a $k-CNF$ or $k-DNF$.
+A general two-level circuit can be seen as either a $$CNF$$ or a $$DNF$$. 
+If the fan-in is restricted, then the circuit becomes a $$k-CNF$$ or $$k-DNF$$.
 We can describe how a circuit simplifies under a random restriction.
 This would allow us to reduce the depth of a circuit.
 
 ### Formalization and Proof
-<div class="lemma" text="Håstad's Switching Lemma">
+**lemma** 1(*Håstad's Switching Lemma*)
     Suppose $$f$$ is an $$n$$ input function expressible as a $$k-DNF$$, after a random restriction $$\rho$$ of $$t$$ randomly selected inputs, for every $$s \ge 2$$:
     \begin{equation}
         \mathop{\mathrm{P}}\limits_{\rho} (f|_\rho\text{ is not expressible as an } s-CNF) \le \left(\frac{(n-k)k^{10}}n\right)^{\frac{s}2}
     \end{equation}
     in which $$f|_\rho$$ is $$f$$ under the restriction $$\rho$$.
-</div>
 
 <div class="proof">
     To prove this lemma, we need to prove that the number of "bad restrictions" that restrict $$f$$ to functions not expressible as an $$s-CNF$$ is relatively small. The way we do this is to find a one-to-one mapping from such a restriction $$\rho$$ to a member in $$R_{n-t-s} \times [2]^c$$, in which $$c = O(s \log k)$$ and $R_m$ is the set of restrictions on $$m$$ inputs.
@@ -72,10 +71,21 @@ This would allow us to reduce the depth of a circuit.
 
 One of the most well-known applications of this lemma is that
 
-<div class="theorem">
+<div class="theorem" text="Parity is not in AC0">
     $$ \oplus \notin \mathrm{\mathbf{AC}}^0 $$, in which $$ \oplus (x_1,\dots x_n) = \sum_{i} x_i \text{ (mod \mathnormal{2})}$$
 </div>
 
 <div class="proof">
-    Suppose we have a circuit in $$\mathrm{\mathbf{AC}}^0$$
+    Suppose we have a circuit in $$\mathrm{\mathbf{AC}}^0$$ that could compute $$\oplus$$. 
+    Without loss of generality, suppose the circuit satisfies some conditions:
+    - All fan-outs are 1
+    - There is no $$\neg$$ gates in the circuit
+    - The $$\wedge$$ and $$\vee$$ gates alternate between each layer
+    - The bottom level has $$\wedge$$ gates of fan-in 1 
+
+    We show that we could use the switching lemma to gradually reduce the depth of the circuit to 2.
+    Suppose the size of the circuit has upper bound $$n^b$$.
+    Consider the two bottom layers of the circuit, $$\vee$$ and $$\wedge$$. Each $$\vee$$ computes a $$CNF$$.
+    For the $$i^{th}$$ step
+    
 </div>
