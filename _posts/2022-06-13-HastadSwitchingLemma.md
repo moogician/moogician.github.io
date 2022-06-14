@@ -2,9 +2,9 @@
 layout: post
 title: 
 date: 2022-06-13 20:00:00
-description: classic techniques on solving MAB problems
-tags: OnlineLearning
-categories: lecture-note
+description: Håstad's switching lemma and its applications
+tags: complexity circuit-complexity TCS
+categories: classic-tools
 ---
 
 <link rel="stylesheet" href="/assets/css/amsmath.css">
