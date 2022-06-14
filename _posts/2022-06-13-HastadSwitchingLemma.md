@@ -26,7 +26,7 @@ This would allow us to reduce the depth of a circuit.
     in which $$f|_\rho$$ is $$f$$ under the restriction $$\rho$$.
 
 *Proof.* 
-    To prove this lemma, we need to prove that the number of "bad restrictions" that restrict $$f$$ to functions not expressible as an $$s-CNF$$ is relatively small. The way we do this is to find a one-to-one mapping from such a restriction $$\rho$$ to a member in $$R_{n-t-s} \times [2]^c$$, in which $$c = O(s \log k)$$ and $R_m$ is the set of restrictions on $$m$$ inputs.
+    To prove this lemma, we need to prove that the number of "bad restrictions" that restrict $$f$$ to functions not expressible as an $$s-CNF$$ is relatively small. The way we do this is to find a one-to-one mapping from such a restriction $$\rho$$ to a member in $$R_{n-t-s} \times [2]^c$$, in which $$c = O(s \log k)$$ and $$R_m$$ is the set of restrictions on $$m$$ inputs.
     We could see this as mapping $$\rho$$ to $$(\rho\pi, \text{ some auxiliary information})$$, where the auxiliary information is only necessary to compute the invert of the mapping. \
     Before we construct such a mapping, we need to point out an important fact.
     Since $$f|_\rho$$ is inexpressible as a $$s-CNF$$, there must be a set of variables $$\{x_i\}$$ such that by a proper restriction on these variables we could make $$f|_\rho$$ a zero function with the size of the set $$>s$$ (or we could find all such sets and $$\wedge$$ the clauses derived from each such set).
@@ -38,7 +38,7 @@ This would allow us to reduce the depth of a circuit.
     Thus, from the left to the right, there is a clause $$C_{i_1}$$ that is the first to not be set to 0. 
     Let $$ \pi_1 $$ be a restriction that only restricts the free variables $$\pi$$ restricts in this clause.
     Since $$\pi$$ makes the function zero, $$\pi_1$$ must also set $$C_{i_1}$$ to zero.
-    We iterate this process to get $$\pi_2\dots$$ until the total number of variables restricted is equal to $s$. 
+    We iterate this process to get $$\pi_2\dots$$ until the total number of variables restricted is equal to $$s$$. 
     The last $$\pi_p$$ might be trimmed arbitrarily.
     Let $$\sigma_i = \neg \pi_i$$, we define the restriction in the mapping of $$\rho$$ as $$\rho\sigma_1\dots\sigma_p$$. \
     Next, we show how to revert this process. 
