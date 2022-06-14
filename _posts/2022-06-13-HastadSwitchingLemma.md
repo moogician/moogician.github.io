@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: Håstad's Switching Lemma
 date: 2022-06-13 20:00:00
 description: Håstad's switching lemma and its applications
 tags: complexity circuit-complexity TCS
