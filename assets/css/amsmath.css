@@ -13,7 +13,7 @@
     font-style: normal;
 }
 .theorem[text]:before {
-    content: "Theorem (" <i> attr(text) </i> ") ";
+    content: "Theorem (" attr(text) ") ";
 }
 
 .lemma {
