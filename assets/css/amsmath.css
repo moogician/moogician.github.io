@@ -1,7 +1,6 @@
 .theorem {
     display: block;
     margin: 12px 0;
-    font-style: italic;
 }
 .theorem:before {
     content: "Theorem.";
@@ -14,7 +13,7 @@
     font-style: normal;
 }
 .theorem[text]:before {
-    content: "Theorem (" attr(text) ") ";
+    content: "Theorem (" <i> attr(text) </i> ") ";
 }
 
 .lemma {
