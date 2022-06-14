@@ -26,6 +26,10 @@
     font-style: normal;
 }
 
+.lemma[text]:before {
+    content: "Lemma (" attr(text) ") ";
+}
+
 .proof {
     display: block;
     margin: 12px 0;

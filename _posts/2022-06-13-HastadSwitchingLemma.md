@@ -9,13 +9,73 @@ categories: classic-tools
 
 <link rel="stylesheet" href="/assets/css/amsmath.css">
 
-<div class="theorem" text="Håstad's Switching Lemma">
-    Suppose $f$ is an $n$ input function expressible as a $k-DNF$, after a random restriction $\rho$ of $t$ randomly selected inputs, for every $s \ge 2$:
+## Håstad's Switching Lemma
+
+### General Idea
+A general two-level circuit can be seen as either a $CNF$ or a $DNF$. 
+If the fan-in is restricted, then the circuit becomes a $k-CNF$ or $k-DNF$.
+We can describe how a circuit simplifies under a random restriction.
+This would allow us to reduce the depth of a circuit.
+
+### Formalization and Proof
+<div class="lemma" text="Håstad's Switching Lemma">
+    Suppose $$f$$ is an $$n$$ input function expressible as a $$k-DNF$$, after a random restriction $$\rho$$ of $$t$$ randomly selected inputs, for every $$s \ge 2$$:
     \begin{equation}
         \mathop{\mathrm{P}}\limits_{\rho} (f|_\rho\text{ is not expressible as an } s-CNF) \le \left(\frac{(n-k)k^{10}}n\right)^{\frac{s}2}
     \end{equation}
-    in which $f|_\rho$ is $f$ under the restriction $\rho$.
+    in which $$f|_\rho$$ is $$f$$ under the restriction $$\rho$$.
 </div>
 
-## Setting
-Good
+<div class="proof">
+    To prove this lemma, we need to prove that the number of "bad restrictions" that restrict $$f$$ to functions not expressible as an $$s-CNF$$ is relatively small. The way we do this is to find a one-to-one mapping from such a restriction $$\rho$$ to a member in $$R_{n-t-s} \times [2]^c$$, in which $$c = O(s \log k)$$ and $R_m$ is the set of restrictions on $$m$$ inputs.
+    We could see this as mapping $$\rho$$ to $$(\rho\pi, \text{ some auxiliary information})$$, where the auxiliary information is only necessary to compute the invert of the mapping.
+
+    Before we construct such a mapping, we need to point out an important fact.
+    Since $$f|_\rho$$ is inexpressible as a $$s-CNF$$, there must be a set of variables $$\{x_i\}$$ such that by a proper restriction on these variables we could make $$f|_\rho$$ a zero function with the size of the set $$>s$$ (or we could find all such sets and $$\wedge$$ the clauses derived from each such set).
+    Additionally, there isn't a subset of this set that has the same property (exists a restriction that turns the original function into zero function).
+    We denote by $$\pi$$ the corresponding restriction on this set.
+
+    Next, we try to construct such a mapping.
+    Suppose $$ C_1 \dots C_{m} $$ are the clauses (ordered) in the $$k-DNF$$ that is equal to $$f$$.
+    Since $$f|_\rho \neq \mathbf{1}$$, the clauses are either fixed to 0 or undecided.
+    Thus, from the left to the right, there is a clause $$C_{i_1}$$ that is the first to not be set to 0. 
+    Let $$ \pi_1 $$ be a restriction that only restricts the free variables $$\pi$$ restricts in this clause.
+    Since $$\pi$$ makes the function zero, $$\pi_1$$ must also set $$C_{i_1}$$ to zero.
+    We iterate this process to get $$\pi_2\dots$$ until the total number of variables restricted is equal to $s$. 
+    The last $$\pi_p$$ might be trimmed arbitrarily.
+    Let $$\sigma_i = \neg \pi_i$$, we define the restriction in the mapping of $$\rho$$ as $$\rho\sigma_1\dots\sigma_p$$. 
+    
+    Next, we show how to revert this process. 
+    Define $$s_i$$ as the number of variables restricted by each $$\sigma_i$$.
+    We find from the left to the right the first clause that is fixed to 1.
+    By the process we get the $$\sigma_i$$'s, all the variable $$\sigma_1$$ restricts is in this clause.
+    We then use $$s_1 \log n$$ bits to record all the variables restricted by $$\sigma_1$$.
+    We could then compute $$\rho\pi_1\sigma_2\dots\sigma_p$$ and repeat this process to find all the $$\sigma_i$$.
+    For $$\sigma_p$$, the first clause might be undecided, but this would not tamper with the inversion.
+    Thus, we need at most $$\sum_{i}s_i \log n = s\log n$$ auxiliary bits.
+
+    With such a one-to-one mapping, we know that there are at most $$\binom{n}{t+s}2^{t+s}\cdot 2^{s\log n} = \binom{n}{t+s}2^{t+s}n^s$$ such "bad restrictions".
+    Thus, the probability that $$\rho$$ is a bad restriction is at most 
+    \begin{equation}
+        \frac{\binom{n}{t+s}2^{t+s}n^s}{\binom{n}{t}2^t} \le \left(\frac{(n-k)k^{10}}n\right)^{\frac{s}2}
+    \end{equation}
+    The last inequality needs some estimate techniques.
+</div>
+
+### Remarks
+
+- This lemma also stands if $$CNF$$ and $$DNF$$ switch place.
+- This lemma does not concern the *size* of $$f$$.
+- In reality $$t$$ is often close to $$n$$, say, $$n-\sqrt{n}$$.
+
+## Example Applications
+
+One of the most well-known applications of this lemma is that
+
+<div class="theorem">
+    $$ \oplus \notin \mathrm{\mathbf{AC}}^0 $$, in which $$ \oplus (x_1,\dots x_n) = \sum_{i} x_i \text{ (mod \mathnormal{2})}$$
+</div>
+
+<div class="proof">
+    Suppose we have a circuit in $$\mathrm{\mathbf{AC}}^0$$
+</div>
