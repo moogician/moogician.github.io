@@ -103,6 +103,8 @@ disqus_shortname: al-folio # put your disqus shortname
 external_sources:
   - name: medium.com
     rss_url: https://medium.com/@al-folio/feed
+  - name: wordpress.com
+    rss_url: https://hwangpku.com/?feed=rss
 
 # -----------------------------------------------------------------------------
 # Collections
