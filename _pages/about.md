@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Sophomore, Peking University, tony.wanghao@stu.pku.edu.cn
 
 profile:
   align: right
