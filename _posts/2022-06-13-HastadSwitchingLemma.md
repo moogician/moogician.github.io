@@ -56,9 +56,9 @@ Next, we show how to revert this process.
 With such a one-to-one mapping, we know that there are at most $$\binom{n}{t+s}2^{t+s}\cdot 2^{s\log n} = \binom{n}{t+s}2^{t+s}n^s$$ such "bad restrictions".
     Thus, the probability that $$\rho$$ is a bad restriction is at most 
 
-    \begin{equation}
-        \frac{\binom{n}{t+s}2^{t+s}n^s}{\binom{n}{t}2^t} \le \left(\frac{(n-k)k^{10}}n\right)^{\frac{s}2}
-    \end{equation}
+\begin{equation}
+    \frac{\binom{n}{t+s}2^{t+s}n^s}{\binom{n}{t}2^t} \le \left(\frac{(n-k)k^{10}}n\right)^{\frac{s}2}
+\end{equation}
 
 The last inequality needs some estimate techniques.  $$\tag*{$\blacksquare$}$$
 
