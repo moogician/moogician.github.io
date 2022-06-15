@@ -66,7 +66,7 @@ This would allow us to reduce the depth of a circuit.
 
 One of the most well-known applications of this lemma is that
 
-**Theorem** (*Parity is not in AC0*)
+**Theorem 1** (*Parity is not in AC0*)
     $$ \oplus \notin \mathrm{\mathbf{AC}}^0 $$, in which $$ \oplus (x_1,\dots x_n) = \sum_{i} x_i \text{ (mod 2)}$$.
 
 *Proof.* 
