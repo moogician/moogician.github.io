@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Sophomore, Peking University, tony.wanghao@stu.pku.edu.cn
+subtitle: Sophomore@PKU
 
 profile:
   align: right
