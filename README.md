@@ -1,3 +1,6 @@
+## Math mode
+Jekyll automatically converts \\\\ to \<br\>. Use \&\#92; for \\ or use multiple slashes instead.
+
 # al-folio
 
 [![deploy](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml/badge.svg)](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml)
