@@ -7,15 +7,15 @@ tags: complexity circuit-complexity TCS
 categories: classic-tools
 ---
 
-## Håstad's Switching Lemma
+# Håstad's Switching Lemma
 
-### General Idea
+## General Idea
 A general two-level circuit can be seen as either a $$CNF$$ or a $$DNF$$. 
 If the fan-in is restricted, then the circuit becomes a $$k-CNF$$ or $$k-DNF$$.
 We can describe how a circuit simplifies under a random restriction.
 This would allow us to reduce the depth of a circuit.
 
-### Formalization and Proof
+## Formalization and Proof
 **Lemma** 1(*Håstad's Switching Lemma*)
     Suppose $$f$$ is an $$n$$ input function expressible as a $$k-DNF$$, after a random restriction $$\rho$$ of $$t$$ randomly selected inputs, for every $$s \ge 2$$:
     \begin{equation}
@@ -60,13 +60,13 @@ With such a one-to-one mapping, we know that there are at most $$\binom{n}{t+s}2
 
 The last inequality needs some estimate techniques.  $$\tag*{$\blacksquare$}$$
 
-### Remarks
+## Remarks
 
 - This lemma also stands if $$CNF$$ and $$DNF$$ switch place.
 - This lemma does not concern the *size* of $$f$$.
 - In reality $$t$$ is often close to $$n$$, say, $$n-\sqrt{n}$$.
 
-## Example Applications
+# Example Applications
 
 One of the most well-known applications of this lemma is that
 
