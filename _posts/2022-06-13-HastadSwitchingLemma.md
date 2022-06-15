@@ -26,12 +26,14 @@ This would allow us to reduce the depth of a circuit.
     in which $$f|_\rho$$ is $$f$$ under the restriction $$\rho$$.
 
 *Proof.* 
-    To prove this lemma, we need to prove that the number of "bad restrictions" that restrict $$f$$ to functions not expressible as an $$s-CNF$$ is relatively small. The way we do this is to find a one-to-one mapping from such a restriction $$\rho$$ to a member in $$R_{n-t-s} \times [2]^c$$, in which $$c = O(s \log k)$$ and $$R_m$$ is the set of restrictions on $$m$$ inputs.
-    We could see this as mapping $$\rho$$ to $$(\rho\pi, \text{ some auxiliary information})$$, where the auxiliary information is only necessary to compute the invert of the mapping. \
-    Before we construct such a mapping, we need to point out an important fact.
+To prove this lemma, we need to prove that the number of "bad restrictions" that restrict $$f$$ to functions not expressible as an $$s-CNF$$ is relatively small. The way we do this is to find a one-to-one mapping from such a restriction $$\rho$$ to a member in $$R_{n-t-s} \times [2]^c$$, in which $$c = O(s \log k)$$ and $$R_m$$ is the set of restrictions on $$m$$ inputs.
+    We could see this as mapping $$\rho$$ to $$(\rho\pi, \text{ some auxiliary information})$$, where the auxiliary information is only necessary to compute the invert of the mapping.
+
+Before we construct such a mapping, we need to point out an important fact.
     Since $$f|_\rho$$ is inexpressible as a $$s-CNF$$, there must be a set of variables $$\{x_i\}$$ such that by a proper restriction on these variables we could make $$f|_\rho$$ a zero function with the size of the set $$>s$$ (or we could find all such sets and $$\wedge$$ the clauses derived from each such set).
     Additionally, there isn't a subset of this set that has the same property (exists a restriction that turns the original function into zero function).
-    We denote by $$\pi$$ the corresponding restriction on this set. \
+    We denote by $$\pi$$ the corresponding restriction on this set.
+
     Next, we try to construct such a mapping.
     Suppose $$ C_1 \dots C_{m} $$ are the clauses (ordered) in the $$k-DNF$$ that is equal to $$f$$.
     Since $$f|_\rho \neq \mathbf{1}$$, the clauses are either fixed to 0 or undecided.
