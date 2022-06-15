@@ -7,8 +7,6 @@ tags: complexity circuit-complexity TCS
 categories: classic-tools
 ---
 
-<link rel="stylesheet" href="/assets/css/amsmath.css">
-
 ## Håstad's Switching Lemma
 
 ### General Idea
