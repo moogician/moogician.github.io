@@ -3,11 +3,20 @@
   <script type="text/javascript">
     window.MathJax = {
       tex: {
-        tags: 'ams'
+        tags: 'ams',
+        macros: {
+          CC: ["\\mathrm{\\mathbf{#1}}", 1],
+          RTIME: ["\\CC{RTIME}(#1)", 1],
+          RP: "\\CC{RP}",
+          coRP: "\\CC{coRP}",
+          ZTIME: ["\\CC{ZTIME}(#1)", 1],
+          ZPP: "\\CC{ZPP}",
+          BPP: "\\CC{BPP}",
+
+          BPL: "\\CC{BPL}",
+          RL: "\\CC{RL}",
+        }
       },
-      macros: {
-        BPL: "{\\bf BPL}",
-      }
     };
   </script>
   <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@{{ site.mathjax.version }}/es5/tex-mml-chtml.js"></script>
