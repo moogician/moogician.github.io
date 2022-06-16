@@ -1,14 +1,14 @@
-"Adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"Marinov":
+  - firstname: ["Darko"]
+    url: https://mir.cs.illinois.edu/marinov/
 
-"Podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"Lam":
+  - firstname: ["Wing"]
+    url: https://cs.gmu.edu/~winglam/
 
-"Rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"Xie":
+  - firstname: ["Tao"]
+    url: https://taoxiease.github.io/
 
 "Bach": 
   - firstname: ["Johann Sebastian", "J. S."]
