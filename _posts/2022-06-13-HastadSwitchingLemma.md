@@ -90,3 +90,5 @@ One of the most well-known applications of this lemma is that
 
 Thus, $$\oplus \notin \mathrm{\mathbf{AC}}^0 \tag*{$\blacksquare$}$$
 
+$$\BPL$$
+
