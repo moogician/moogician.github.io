@@ -88,5 +88,5 @@ With high probability (at least $$1-\frac{dep(C)}{10n^b}$$ by union bound), we c
 Thus, we could fix the $$k$$ free variables to make the function constant.
 However, $$\oplus$$ could not be made constant by fixing $$k < n$$ variables, which is a contradiction.
 
-Thus, $$\oplus \notin \mathrm{\mathbf{AC}}^0 \tag*{$\blacksquare$}$$
+Thus, $$\oplus \notin \mathrm{\mathbf{AC}}^0$$ $$\tag*{$\blacksquare$}$$
 
