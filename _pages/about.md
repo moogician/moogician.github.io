@@ -20,3 +20,4 @@ My formal name is Hao, but I usually go by Tony. I am a sophomore undergraduate 
 
 I am very fortunate to be advised by [Prof. Darko Marinov](https://mir.cs.illinois.edu/marinov/), [Prof. Tao Xie](https://taoxiease.github.io/), and [Prof. Tongyang Li](https://www.tongyangli.com/). I plan to focus my undergraduate research on quantum algorithms, under the supervision of [Prof. Tongyang Li](https://www.tongyangli.com/).
 
+You can find my CV here: <a href="/assets/pdf/Hao_Wang_CV.pdf">Tony's Curriculum Vitae</a>
