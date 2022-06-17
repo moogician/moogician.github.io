@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 title: Differential Privacy
 date: 2022-06-16 20:00:00
 description: How to ensure privacy in publicly distributed data
