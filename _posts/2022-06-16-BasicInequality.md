@@ -36,5 +36,5 @@ $$
 \begin{equation}
     \prob{}{|f(\mathbf{x}) - \mathbb{E}[f(\mathbf{x})]| \ge \epsilon} \le \exp(\frac{-2\epsilon^2}{\sum_{i=1}^n c_i^2})
 \end{equation}
-in which $$\mathbf{x} = (x_1\dots x_n)$$.
+in which $$\mathbf{x} = (X_1\dots X_n)$$.
 
