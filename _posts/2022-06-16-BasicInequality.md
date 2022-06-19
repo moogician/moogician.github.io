@@ -19,7 +19,7 @@ categories: classic-tools
 
 **Theorem 3** (*Chernoff Bound*) Let $$X_1,\dots,X_n$$ be $$n$$ random variables satisfying $$X_i \in [0,1]$$ and $$\mathbb{E}[X_i] = p_i,\forall i \in [n]$$. Suppose $$\bar{X} = \frac1n\sum_{i=1}^n X_i, p = \frac1n\sum_{i=1}^n p_i$$, for all $$\epsilon > 0$$ we have
 \begin{equation}
-    \prob{}{\bar{X}-p \ge \epsilon} \le \exp(-nD_{KL}(p + \epsilon || p))
+    \prob{}{\bar{X}-p \ge \epsilon} \le \exp(-nD_{KL}(B(p + \epsilon) || B(p)))
 \end{equation}
 
 **Theorem 4** (*Hoeffding's Inequality*) Let $$X_1,\dots,X_n$$ be $$n$$ independent random variables satisfying $$X_i \in [a_i,b_i]$$. Suppose $$\bar{X} = \frac1n\sum_{i=1}^n X_i, \mu = \frac1n\sum_{i=1}^n \mathbb{E}[X_i]$$, for all $$\epsilon > 0$$ we have
