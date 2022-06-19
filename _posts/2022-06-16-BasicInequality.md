@@ -29,7 +29,7 @@ categories: classic-tools
 
 **Definition 5** (*Stable functions*) We call a function $$f: \mathcal{X}\rightarrow \mathbb{R}$$ a *stable function* iff 
 $$
-    \exists c_1,\dots c_n \in \mathbb{R}\forall x_1,\dots x_n \in \mathcal{X},i,x_i'.|f(x_1,\dots x_i\dots x_n) - f(x_1,\dots x_i'\dots x_n)| \le c_i
+    \exists c_1,\dots c_n \in \mathbb{R}.\forall x_1,\dots x_n,x_i' \in \mathcal{X},i \in [n].|f(x_1,\dots x_i\dots x_n) - f(x_1,\dots x_i'\dots x_n)| \le c_i
 $$
 
 **Theorem 5** (*McDiarmid's Inequality*) Let $$ X_1 \dots X_n \in \mathcal{X}$$ be $$n$$ independent random variables and $$ f $$ a stable function. Then, $$\forall \epsilon > 0 $$ we have
