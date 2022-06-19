@@ -14,7 +14,7 @@ categories: classic-tools
 
 **Theorem 2** (*Chebyshev's Inequality*)
 \begin{equation}
-    \mathbb{E}[X],\dots \mathbb{E}[X^j]\text{ all exists} \Rightarrow \prob{}{\lVert X - \mathbb{E}[X]\rVert \ge k} \le \min\limits{i \in [j]} \frac{\mathbb{E}[\lVert X-\mathbb{E}[x]\rVert^i]}{k^i}
+    \mathbb{E}[X],\dots \mathbb{E}[X^j]\text{ all exists} \Rightarrow \prob{}{| X - \mathbb{E}[X]| \ge k} \le \min\limits{i \in [j]} \frac{\mathbb{E}[|X-\mathbb{E}[x]|^i]}{k^i}
 \end{equation}
 
 **Theorem 3** (*Chernoff Bound*) Let $$X_1,\dots,X_n$$ be $$n$$ random variables satisfying $$X_i \in [0,1]$$ and $$\mathbb{E}[X_i] = p_i,\forall i \in [n]$$. Suppose $$\bar{X} = \frac1n\sum_{i=1}^n X_i, p = \frac1n\sum_{i=1}^n p_i$$, for all $$\epsilon > 0$$ we have
