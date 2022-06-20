@@ -21,6 +21,7 @@ categories: classic-tools
 \begin{equation}
     \prob{}{\bar{X}-p \ge \epsilon} \le \exp(-nD_{KL}(B(p + \epsilon) || B(p)))
 \end{equation}
+in which $$B(p)$$ is the bernoulli distribution with probability $$p$$.
 
 **Theorem 4** (*Hoeffding's Inequality*) Let $$X_1,\dots,X_n$$ be $$n$$ independent random variables satisfying $$X_i \in [a_i,b_i]$$. Suppose $$\bar{X} = \frac1n\sum_{i=1}^n X_i, \mu = \frac1n\sum_{i=1}^n \mathbb{E}[X_i]$$, for all $$\epsilon > 0$$ we have
 \begin{equation}
