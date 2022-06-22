@@ -73,10 +73,12 @@ $$ \oplus \notin \mathrm{\mathbf{AC}}^0 $$, in which $$ \oplus (x_1,\dots x_n) =
 
 *Proof.* Suppose we have a circuit in $$\mathrm{\mathbf{AC}}^0$$ that could compute $$\oplus$$. 
 Without loss of generality, suppose the circuit satisfies some conditions:
+
 - All fan-outs are 1
 - There is no $$\neg$$ gates in the circuit
 - The $$\wedge$$ and $$\vee$$ gates alternate between each layer
 - The bottom level has $$\wedge$$ gates of fan-in 1 
+
 We show that we could use the switching lemma to gradually reduce the depth of the circuit to 2.
 Suppose the size of the circuit has upper bound $$n^b$$.
 Consider the two bottom layers of the circuit, $$\vee$$ and $$\wedge$$. Each $$\vee$$ computes a $$CNF$$.
