@@ -54,7 +54,17 @@ categories: summary
 - Circuit of exponential size (tbd)
 
 # Chapter 7
+- **Theorem 7.1** $$\ZPP = \RP \cap \coRP$$
+- **Claim 7.2** $$\RP, \coRP \subseteq \BPP$$
+- **Theorem 7.3**(*Error Reduction*) $$\exists M. \prob{}{M(x) = L(x)} \ge \frac12 + |x|^{-c} \Rightarrow \exists M'. \prob{}{M'(x) = L(x)} \ge 1 - 2^{-|x|^d}$$
+- **Theorem 7.4** $$\BPP \subseteq \Ppoly$$
+- **Theorem 7.5**(*Sipser-Gács Theorem*) $$\BPP \subseteq \SIGMA{2}{p}\cap \PI{2}{p}$$
+*Hint: Translation of valid area*
 
+# Chapter 8
+- **Lemma 8.1** $$\dIP = \NP$$
+- **Theorem 8.2** $$\AM[2] = \BPNP$$ *Exercise 8.3*
+- **Theorem 8.3**(*Goldwasser-Sipser*) $$\IP[k] \subseteq \AM[k+2]$$ *P134*
 
 <!----
 PSPACE complete: TQBF 76
