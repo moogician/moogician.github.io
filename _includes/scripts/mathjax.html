@@ -25,15 +25,29 @@
           EXP: "\\CC{EXP}",
           NEXP: "\\CC{NEXP}",
 
+          SPACE: ["\\CC{SPACE}(#1)", 1],
+          NSPACE: ["\\CC{NSPACE}(#1)", 1],
+          PSPACE: "\\CC{PSPACE}",
+          NPSPACE: "\\CC{NPSPACE}",
+          L: "\\CC{L}",
+          NL: "\\CC{NL}",
+
+          PH: "\\CC{PH}",
+          SIGMA: ["\\CC{\\Sigma}_{#1}^{#2}", 2],
+          PI: ["\\CC{\\Pi}_{#1}^{#2}", 2],
+          AP: "\\CC{AP}",
+
           Ppoly: "\\CC{P}_{/poly}",
           NPpoly: "\\CC{NP}_{/poly}",
           AC: ["\\CC{AC}^{#1}", 1],
           NC: ["\\CC{NC}^{#1}", 1],
+          SIZE: ["\\CC{SIZE}(#1)", 1],
 
           TISP: ["\\CC{TISP}(#1, #2)", 2],
 
           Lang: ["\\mathrm{#1}", 1],
           SAT: "\\Lang{SAT}",
+          TQBF: "\\Lang{TQBF}",
 
           prob: ["\\mathop{P}\\limits_{#1}(#2)", 2],
           expectation: ["\\mathop{\\mathbb{E}}\\limit_{#1}[#2]", 2],
