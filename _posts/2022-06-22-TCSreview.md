@@ -64,7 +64,13 @@ categories: summary
 # Chapter 8
 - **Lemma 8.1** $$\dIP = \NP$$
 - **Theorem 8.2** $$\AM[2] = \BPNP$$ *Exercise 8.3*
-- **Theorem 8.3**(*Goldwasser-Sipser*) $$\IP[k] \subseteq \AM[k+2]$$ *P134*
+- **Theorem 8.3**\*(*Goldwasser-Sipser*) $$\IP[k] \subseteq \AM[k+2]$$ *P134*
+- **Theorem 8.4** $$\IP = \PSPACE$$ *P139*
+*Hint: Arithmetize TQBF*
+- **Theorem 8.5** $$\PSPACE \subseteq \Ppoly \Rightarrow \PSPACE = \MA$$
+- MIP (tbd)
+- Checkers (tbd)
+- IP for permant (tbd)
 
 <!----
 PSPACE complete: TQBF 76
