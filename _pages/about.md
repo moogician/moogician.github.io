@@ -20,4 +20,6 @@ My formal name is Hao, but I usually go by Tony. I am a sophomore undergraduate 
 
 I am very fortunate to be advised by [Prof. Darko Marinov](https://mir.cs.illinois.edu/marinov/), [Prof. Tao Xie](https://taoxiease.github.io/), and [Prof. Tongyang Li](https://www.tongyangli.com/). I plan to focus my undergraduate research on quantum algorithms, under the supervision of [Prof. Tongyang Li](https://www.tongyangli.com/).
 
+I am fond of using *vim* and *neovim* to edit my codes. I also like to play with the syntax highlight and vimscript. I am now using a vimrc adapted from @amix3k's. If you are curious, here is my current vimrc: <a href="/assets/my.vimrc">Tony's .vimrc</a>
+
 You can find my CV here: <a href="/assets/pdf/Hao_Wang_CV.pdf">Tony's Curriculum Vitae</a>
