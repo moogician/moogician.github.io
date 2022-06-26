@@ -77,14 +77,3 @@ $$\exists M. \prob{}{M(x) = L(x)} \ge \frac12 + |x|^{-c} \Rightarrow \exists M'.
 ## Chapter 9
 - Goldreich-Levin Theorem (tbd)
 
-# Special Languages
-
-# Techniques
-
-
-<!----
-PSPACE complete: TQBF 76
-NL complete: PATH 80
-coPATH in NL 82
-CKT-SA  
----!>
