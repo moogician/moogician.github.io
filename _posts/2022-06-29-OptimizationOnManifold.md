@@ -7,29 +7,15 @@ tags: optimization convex-optimization smooth-manifold
 categories: classic-results
 ---
 
-{% include pseudocode.html id="quicksort" code="
+{% include pseudocode.html id="RGD" code="
 \begin{algorithm}
-\caption{Quicksort}
+\caption{Riemannian Gradient Descent}
 \begin{algorithmic}
-\PROCEDURE{Quicksort}{$A, p, r$}
-    \IF{$p < r$} 
-        \STATE $q = $ \CALL{Partition}{$A, p, r$}
-        \STATE \CALL{Quicksort}{$A, p, q - 1$}
-        \STATE \CALL{Quicksort}{$A, q + 1, r$}
-    \ENDIF
-\ENDPROCEDURE
-\PROCEDURE{Partition}{$A, p, r$}
-    \STATE $x = A[r]$
-    \STATE $i = p - 1$
-    \FOR{$j = p$ \TO $r - 1$}
-        \IF{$A[j] < x$}
-            \STATE $i = i + 1$
-            \STATE exchange
-            $A[i]$ with     $A[j]$
-        \ENDIF
-        \STATE exchange $A[i]$ with $A[r]$
-    \ENDFOR
-\ENDPROCEDURE
+\ENSURE: x
+\FOR{$k = 0,1,2\dots$}
+    \STATE{Pick a step size $\alpha_k > 0$}
+    \STATE{$x_{k+1} = R_{x_k}(s_k)$, with step $s_k = -\alpha_k \text{grad}f(x_k)$}
+\ENDFOR
 \end{algorithmic}
 \end{algorithm}
 " %}
