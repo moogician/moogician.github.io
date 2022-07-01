@@ -27,7 +27,4 @@ categories: classic-results
 
 - Lower Bound
 - Good Step Picking Algorithm: $$f(x_k) - f(x_{k+1}) \ge c\lVert \text{grad}f(x_k) \rVert$$
-- For a given $$S \subset T\mathcal{M}$$, $$\exists L.\forall (x,s) \in S$$
-$$
-    f(R_x(s)) \le f(x) + \langle \text{grad}f(x), s\rangle + \frac12 \lVert s\rVert^2
-$$
+- For a given $$S \subset T\mathcal{M}, \exists L.\forall (x,s) \in S. f(R_x(s)) \le f(x) + \langle \text{grad}f(x), s\rangle + \frac12 \lVert s\rVert^2$$
