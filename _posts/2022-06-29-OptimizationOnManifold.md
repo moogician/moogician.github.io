@@ -9,7 +9,7 @@ categories: classic-results
 # First-Order Methods
 ## Riemannian Gradient Descent (RGD)
 
-### ALgorithm
+### Algorithm
 {% include pseudocode.html id="RGD" code="
 \begin{algorithm}
 \caption{Riemannian Gradient Descent}
@@ -28,3 +28,10 @@ categories: classic-results
 - Lower Bound
 - Good Step Picking Algorithm: $$f(x_k) - f(x_{k+1}) \ge c\lVert \text{grad}f(x_k) \rVert$$
 - For a given $$S \subset T\mathcal{M}, \exists L.\forall (x,s) \in S. f(R_x(s)) \le f(x) + \langle \text{grad}f(x), s\rangle + \frac12 \lVert s\rVert^2$$
+
+## Riemannian Stochastic Gradient Descent (RSGD) [Arxiv Link](https://arxiv.org/pdf/1111.5280.pdf)
+
+## Riemannian Accelerated Gradient Descent (RAGD) [Arxiv Link](https://arxiv.org/pdf/1806.02812.pdf)
+
+## Riemannian Langevin Diffusion (RLD) [Paper Link](https://proceedings.neurips.cc/paper/2020/file/dab10c50dc668cd8560df444ff3a4227-Paper.pdf)
+
