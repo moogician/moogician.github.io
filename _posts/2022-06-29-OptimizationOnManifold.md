@@ -10,25 +10,28 @@ categories: classic-results
 ## Riemannian Gradient Descent (RGD)
 
 ### Algorithm
-{% include pseudocode.html id="RGD" code="
+{% include pseudocode.html id="1" code="
 \begin{algorithm}
 \caption{Riemannian Gradient Descent}
 \begin{algorithmic}
 \ENSURE{$\tau,r \in (0,1)$}
+
 \PROCEDURE{RGD}{$x_0 \in \mathcal{M}$}
     \FOR{$k = 0,1,2\dots$}
         \STATE{Pick a step size $\alpha_k > 0$}
         \STATE{$x_{k+1} = R_{x_k}(s_k)$, with step $s_k = -\alpha_k \text{grad}f(x_k)$}
     \ENDFOR
-    \RETURN{x_{final}}
+    \RETURN{$x_{final}$}
 \ENDPROCEDURE
-\PROCEDURE{Backtracking Line Search}{$x \in \mathcal{M}, \hat{\alpha} > 0$}
+
+\PROCEDURE{BacktrackingLineSearch}{$x \in \mathcal{M}, \hat{\alpha} > 0$}
     \STATE{$\alpha \leftarrow \hat{\alpha}$}
     \WHILE{$f(x) - f(R_x(-\alpha \text{grad}f(x))) < r\alpha\lVert\text{grad}f(x)\rVert^2$}
         \STATE{$\alpha = \tau \alpha$}
     \ENDWHILE
     \RETURN{$\alpha$}
 \ENDPROCEDURE
+
 \end{algorithmic}
 \end{algorithm}
 " %}
