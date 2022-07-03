@@ -23,14 +23,26 @@ This is relatively easier in an Euclidean space. However, when the problem is on
 ## Results
 ### Formulae
 **Lemma 1**([*Agarwal et al.*][1]) Given $$f:\mathcal{M} \rightarrow \mathbb{R}$$ twice continuously differentiable, and $$(x,s)$$ in the domain of a retraction $$R$$, the gradient and Hessian of the pullback $$\hat{f_x}$$ at $$s \in T_x\mathcal{M}$$ are given by
+
 \begin{equation}
-    \nabla\hat{f_x}(s) = T_s^*\text{grad}f(R_x(s))\;\text{and}\; \nabla^2\hat{f_x}(s) = T_s^* \circ \text{Hess} f(R_x(s)) \circ T_s + W_s
+    \nabla\hat{f_x}(s) = T_s^*\text{grad}f(R_x(s)) 
 \end{equation}
+
+and
+
+\begin{equation}
+    \nabla^2\hat{f_x}(s) = T_s^* \circ \text{Hess} f(R_x(s)) \circ T_s + W_s,
+\end{equation}
+
 in which $$T_s$$ is the differential of $$R_x$$ at $$s$$, and $$W_s$$ is defined through polarization by
+
 $$
-    \langle W_s[\dot{s}], \dot{s}\rangle = \langle \text{grad}f(R_x(s)), c^{\prime\prime}(0)\rangle
+    \langle W_s[\dot{s}], \dot{s}\rangle = \langle \text{grad}f(R_x(s)), c^{\prime\prime}(0)\rangle_{R_x(s)},
 $$
+
 in which $$c(t) = R_x(s+t\dot{s})$$.
+
+*Sketch of Proof*: Consider calculating the first and second order derivative of $$g(t) = f\circ R_x(s + t\dot{s}) = \hat{f_x}(s + t\dot{s})$$ in two differnt ways.
 
 [1]: <https://arxiv.org/pdf/1806.00065.pdf> "Agarwal et al., Adaptive regularization with cubics on manifolds"
 
