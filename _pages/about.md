@@ -22,4 +22,6 @@ I am very fortunate to be advised by [Prof. Darko Marinov](https://mir.cs.illino
 
 I am fond of using *vim* and *neovim* to edit my codes. I also like to play with the syntax highlight and vimscript. I am now using a vimrc adapted from [@amix3k's](https://github.com/amix/vimrc). If you are curious, here is my current vimrc: <a href="/assets/my.vimrc">Tony's .vimrc</a>
 
+I also love listening to various genres of music. Recently I have become a lover of Jazz music. My favorite albums are Wynton Marsalis' *Black Code* and *Skyline* by Ron Carter.
+
 You can find my CV here: <a href="/assets/pdf/Hao_Wang_CV.pdf">Tony's Curriculum Vitae</a>
