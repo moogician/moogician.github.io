@@ -45,11 +45,12 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
+" Plugin 'preservim/nerdtree'
 Plugin 'chrisbra/csv.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'preservim/nerdtree'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'github/copilot.vim'
+Plugin 'ms-jpq/chadtree'
+Plugin 'ryanoasis/vim-devicons'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -81,18 +82,28 @@ filetype plugin indent on    " required
 " csv.vim
 let g:csv_highlight_column = 'y' " highlight the cursor column
 let g:csv_hiGroup = "Question"
+let g:csv_default_delim=','
 
-" nerdtree
-" Start NERDTree when Vim starts with a directory argument.
+" Need to install devicon for 'devicons' to work. Use ASCII instead.
+let g:chadtree_settings= {
+    \ 'theme.icon_glyph_set' : 'devicons',
+    \ 'ignore.name_glob': ['.*'],
+    \ }
+set guifont="font-hack-nerd-font"
+" automatically open chadtree if open a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+    \ execute 'CHADopen' | wincmd p | enew | execute 'cd '.argv()[0] | endif
+
+let lang="en_US.UTF-8"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nu rnu
+tnoremap <Esc> <C-\><C-n>
 
 " Sets how many lines of history VIM has to remember
 set history=500
