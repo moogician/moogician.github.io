@@ -258,15 +258,17 @@ Socket编程
         - 吞吐量
             - 丢包时窗口大小W，忽略慢启动
             - 丢包前吞吐W/RTT，丢包后W/2RTT
-            - 平均约为0.75W/RTT
+            - 平均约为0.75W/RTT（分析见图）
 <div class="row mt-3">
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/blog/tcp-throughput.png" class="img-fluid rounded z-depth-1" %}
 </div>
 </div>
+
         - 公平性
             - 多个TCP共享同一个瓶颈链路，速度应该相同
-            - 公平性来自于AIMD
+            - 公平性来自于AIMD（见下图）
+
 <div class="row mt-3">
 <div class="col-sm mt-3 mt-md-0">
     {% include figure.html path="assets/img/blog/tcp-fairness1.png" class="img-fluid rounded z-depth-1" %}
@@ -281,6 +283,46 @@ Socket编程
     {% include figure.html path="assets/img/blog/tcp-fairness4.png" class="img-fluid rounded z-depth-1" %}
 </div>
 </div>
+    
+- 拥塞控制改进
+    - New Reno：快速重传后若还是不行则马上重传第一个未被确认的包
+    - BIC和CUBIC：更快找到合适的cwnd大小 
+        - BIC使用二分查找逼近Wmax
+            - 如果有新的Wmax就对称指数找新的Wmax
+            - 过于复杂
+            - 不公平（RTT越短cwnd增长越快）
+        - CUBIC：窗口增长函数只和距离上次丢包时间有关
+            - 和RTT无关
+            - 用三次函数逼近BIC曲线
+    - BBR：以瓶颈链路带宽*往返时间作为目标（不要把缓冲区填满）
+    - DCTCP：面向数据中心
+        - 问题：总流量大(incast)，端口占用(queue buildup)，缓冲区占用(buffer pressure)
+        - 更精细的窗口
+        - 交换机：队列长度超N时给之后的包标记ECN
+        - 接收端：只有出现或消失ECN时直接ACK，否则delay ACK
+        - 发送端：每个RTT更新cwnd，根据ECN ACK/总ACK数动态调整
+        - 队列长度稳定且低
+
+### QUIC
+- TCP存在的问题
+    - 应用无法修改TCP
+    - 握手时延大（要三个RTT）
+    - 队头阻塞（丢包复杂，多路复用慢）
+- 架构：基于UDP，替代TCP，TLS和部分HTTP，模块化拥塞控制
+- 优势
+    - 解决了队头阻塞问题
+    - seq更明确，RTT更精确
+    - 支持ip/port切换
+    - 容易部署更新
+
+
+
+### 新型技术
+#### BIC和CUBIC
+
+#### BBR
+#### DCTCP
+#### QUIC
 
 
 
