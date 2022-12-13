@@ -259,30 +259,31 @@ Socket编程
             - 丢包时窗口大小W，忽略慢启动
             - 丢包前吞吐W/RTT，丢包后W/2RTT
             - 平均约为0.75W/RTT（分析见图）
-            <div class="row mt-3">
-            <div class="col-sm mt-3 mt-md-0">
-                {% include figure.html path="assets/img/blog/tcp-throughput.png" class="img-fluid rounded z-depth-1" %}
-            </div>
-            </div>
+
+<div class="row mt-3">
+<div class="col-sm mt-3 mt-md-0">
+    {% include figure.html path="assets/img/blog/tcp-throughput.png" class="img-fluid rounded z-depth-1" %}
+</div>
+</div>
 
         - 公平性
             - 多个TCP共享同一个瓶颈链路，速度应该相同
             - 公平性来自于AIMD（见下图）
 
-            <div class="row mt-3">
-            <div class="col-sm mt-3 mt-md-0">
-                {% include figure.html path="assets/img/blog/tcp-fairness1.png" class="img-fluid rounded z-depth-1" %}
-            </div>
-            <div class="col-sm mt-3 mt-md-0">
-                {% include figure.html path="assets/img/blog/tcp-fairness2.png" class="img-fluid rounded z-depth-1" %}
-            </div>
-            <div class="col-sm mt-3 mt-md-0">
-                {% include figure.html path="assets/img/blog/tcp-fairness3.png" class="img-fluid rounded z-depth-1" %}
-            </div>
-            <div class="col-sm mt-3 mt-md-0">
-                {% include figure.html path="assets/img/blog/tcp-fairness4.png" class="img-fluid rounded z-depth-1" %}
-            </div>
-            </div>
+<div class="row mt-3">
+<div class="col-sm mt-3 mt-md-0">
+    {% include figure.html path="assets/img/blog/tcp-fairness1.png" class="img-fluid rounded z-depth-1" %}
+</div>
+<div class="col-sm mt-3 mt-md-0">
+    {% include figure.html path="assets/img/blog/tcp-fairness2.png" class="img-fluid rounded z-depth-1" %}
+</div>
+<div class="col-sm mt-3 mt-md-0">
+    {% include figure.html path="assets/img/blog/tcp-fairness3.png" class="img-fluid rounded z-depth-1" %}
+</div>
+<div class="col-sm mt-3 mt-md-0">
+    {% include figure.html path="assets/img/blog/tcp-fairness4.png" class="img-fluid rounded z-depth-1" %}
+</div>
+</div>
     
 - 拥塞控制改进
     - New Reno：快速重传后若还是不行则马上重传第一个未被确认的包
@@ -323,7 +324,6 @@ Socket编程
 #### BBR
 #### DCTCP
 #### QUIC
-
 
 
 
