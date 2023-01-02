@@ -16,7 +16,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-My formal name is Hao, but I usually go by Tony. I am a sophomore undergraduate student in Peking University, China. I study computer science in Turing class. I am interested in programming languages, formal methods, and software engineering. I am also interested in quantum algorithms, and optimization problems.
+My formal name is Hao, but I usually go by Tony. I am a junior undergraduate student in Peking University, China. I study computer science in Turing class. I am interested in programming languages, formal methods, and software engineering. I am also interested in quantum algorithms, and optimization problems.
 
 I am very fortunate to be advised by [Prof. Darko Marinov](https://mir.cs.illinois.edu/marinov/), [Prof. Tao Xie](https://taoxiease.github.io/), and [Prof. Tongyang Li](https://www.tongyangli.com/). I plan to focus my undergraduate research on quantum algorithms, under the supervision of [Prof. Tongyang Li](https://www.tongyangli.com/).
 
