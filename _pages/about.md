@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Junior@PKU
+subtitle: Senior@PKU
 
 profile:
   align: right
