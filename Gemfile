@@ -12,7 +12,7 @@ group :jekyll_plugins do
     gem 'jekyll-sitemap'
     gem 'jekyll-target-blank'
     gem 'jekyll-twitter-plugin'
-    gem 'jekyll-twitter-plugin'
+    gem 'ostruct'
     gem 'jekyll-pseudocode-b'
     gem 'jemoji'
     gem 'mini_racer'
