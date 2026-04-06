@@ -9,7 +9,7 @@
   <rect width="720" height="300" fill="#ffffff" rx="10"/>
 
   <!-- Three stats -->
-  <text x="120" y="42" text-anchor="middle" fill="#999" font-size="11" font-weight="500" letter-spacing="0.08em">VULNERABILITIES</text>
+  <text x="120" y="42" text-anchor="middle" fill="#999" font-size="11" font-weight="500" letter-spacing="0.08em">POTENTIAL VULNERABILITIES</text>
   <text x="120" y="90" text-anchor="middle" fill="#1a1a1a" font-size="48" font-weight="700">825</text>
   <text x="120" y="112" text-anchor="middle" fill="#aaa" font-size="11">across 13 benchmarks</text>
 

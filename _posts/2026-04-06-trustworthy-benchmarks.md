@@ -32,7 +32,7 @@ Here's what's been happening in public:
 - [OpenAI dropped SWE-bench Verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/) after finding 59.4% of audited problems had flawed tests.
 - In [KernelBench](https://github.com/ScalingIntelligence/KernelBench/issues/82), `torch.empty()` returns stale GPU memory containing the reference answer — [zero computation, full marks](https://deep-reinforce.com/defense_kernel_hack.html).
 
-These are the ones people caught by hand. We built an AI agent that finds them automatically — and it found a lot more. In one case, a few lines of Python walk up the call stack and silently replace the scoring function for a perfect score — no solution needed. In another, all 812 reference answers sit in a plaintext JSON file on the same filesystem where the agent runs. In a third, a dummy C extension satisfies an existence check while numpy does all the actual work underneath.
+These are the ones people caught by hand. We built an AI agent that finds them automatically — and it found a lot more. 
 
 ### What We Did
 
@@ -40,7 +40,7 @@ We built an AI agent that analyzes benchmark evaluation code in depth and automa
 
 <div style="text-align: center;">
   <img src="/assets/img/trustworthy-benchmarks/results.svg" style="max-width: 85%; display: block; margin: 1rem auto;" alt="Audit Results Overview">
-  <p style="margin-top: 0.8rem; font-size: 0.9em; color: #888;">Potential vulnerabilities discovered across 13 audited benchmarks. Every benchmark was rated critical risk.</p>
+  <p style="margin-top: 0.8rem; font-size: 0.9em; color: #888;">Overview of findings across 13 audited benchmarks. Every benchmark was rated critical risk.</p>
 </div>
 
 The 45 confirmed exploits each come with a working proof-of-concept — code that achieves inflated or perfect scores without solving the actual task. They affect benchmarks used to evaluate everything from code generation to web navigation to general-purpose AI assistants.
