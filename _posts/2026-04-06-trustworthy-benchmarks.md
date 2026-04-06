@@ -3,7 +3,7 @@ layout: post
 title: "We Scored 100% on AI Benchmarks Without Solving a Single Problem"
 date: 2026-04-02
 author: "Hao Wang, Qiuyang Mang, Alvin Cheung, Koushik Sen, Dawn Song"
-description: AI benchmarks decide which models get funded, deployed, and trusted. We hacked 13 of them. 45 working exploits. Every benchmark rated critical. If the scores are fake, so is everything built on them — including your training data.
+description: AI benchmarks decide which models get funded, deployed, and trusted. We hacked 13 of them. 45 hacking solutions. Every benchmark rated critical. If the scores are fake, so is everything built on them — including your training data.
 tags: [benchmark, evaluation, reward-hacking, AI safety, trustworthy]
 categories: research
 related_posts: false
@@ -19,11 +19,11 @@ toc:
 
 ### Fake Scores, Real Consequences
 
-Every major AI company uses benchmark scores to sell their models. Training data companies use them to price their products. And increasingly, benchmark scores aren't just measuring models — they're shaping how models are trained, from RL reward signals to data filtering pipelines.
+Every major AI company uses benchmark scores to sell their models. Training data companies use them to price their products. And increasingly, benchmark scores aren't just measuring models — they're shaping how models are trained, from RL reward signals to data filtering pipelines. Benchmarks don’t just measure capability — they shape behavior. And if they are exploitable, they **actively train models to cheat**.
 
 **So what happens when the benchmarks themselves are broken?**
 
-It's not a hypothetical. A model that "improves SWE-bench by 5%" might just be better at exploiting test suite gaps. Training data priced on benchmark gains might be teaching models to game evaluations instead of solving real problems. The leaderboard number that closed your Series B might be inflatable by anyone who reads the eval script.
+It's not a hypothetical. A model that "improves SWE-bench by 5%" might just be better at hacking test suite gaps. Training data priced on benchmark gains might be teaching models to game evaluations instead of solving real problems. The leaderboard number that closed your Series B might be inflatable by anyone who reads the eval script.
 
 Here's what's been happening in public:
 
@@ -43,13 +43,13 @@ We built an AI agent that analyzes benchmark evaluation code in depth and automa
   <p style="margin-top: 0.8rem; font-size: 0.9em; color: #888;">Overview of findings across 13 audited benchmarks. Every benchmark was rated critical risk.</p>
 </div>
 
-The 45 confirmed exploits each come with a working proof-of-concept — code that achieves inflated or perfect scores without solving the actual task. They affect benchmarks used to evaluate everything from code generation to web navigation to general-purpose AI assistants.
+The 45 confirmed hacking solutions each come with a working proof-of-concept — code that achieves inflated or perfect scores without solving the actual task. They affect benchmarks used to evaluate everything from code generation to web navigation to general-purpose AI assistants.
 
 We also cataloged **50 known issues** across Terminal-Bench, SWE-bench, and KernelBench from public GitHub issues and papers. Our dual detection pipeline — one LLM-based, one formal — achieved **100% detection rate** on all 50 after iterative improvement.
 
 ### How We Found Them
 
-We used a **fully automated** hybrid agent that, with zero human intervention, scans benchmark repos, identifies potential vulnerabilities, generates working exploit code, and verifies results end-to-end. Manual auditing doesn't scale — a human expert might spend days on a single evaluation harness, and we needed to cover 13 benchmarks with hundreds of scoring scripts each.
+We used a **fully automated** hybrid agent that, with zero human intervention, scans benchmark repos, identifies potential vulnerabilities, generates working exploit code, and verifies results end-to-end. **Manual auditing doesn't scale** — a human expert might spend days on a single evaluation harness, and we needed to cover 13 benchmarks with hundreds of scoring scripts each.
 
 The agent runs a dual detection pipeline. The **LLM Detector** uses 15 specialized scanners that reason about code intent — cross-referencing task descriptions with test logic to catch semantic gaps like spec mismatches and answer leakage. The **Formal Detector** uses 12 analysis modules built on AST parsing, data-flow analysis, and z3 SMT solving to catch structural issues without any language model. Both were iteratively improved to **100% detection** on a 50-issue catalog.
 
@@ -60,7 +60,7 @@ The full system is an 8-stage audit pipeline:
   <p style="margin-top: 0.8rem; font-size: 0.9em; color: #888;">The full audit pipeline: from benchmark ingestion through adversarial PoC generation and findings correlation.</p>
 </div>
 
-Point the agent at a benchmark repo and it produces a full audit report — vulnerability analysis, working exploit code, and fix suggestions. The 45 confirmed exploits in this post were all **discovered, written, and verified by the agent**, not by us.
+Point the agent at a benchmark repo and it produces a full audit report — vulnerability analysis, working exploit code, and fix suggestions. The 45 confirmed hacking solutions in this post were all **discovered, written, and verified by the agent**, not by us.
 
 ### Example 1: Perfect Score, Zero Work (Frontier-CS)
 
@@ -174,8 +174,11 @@ class CheatingAgent:
 <strong>Root cause:</strong> Reference answers stored in agent-accessible filesystem with no integrity protection. The evaluator reads from the same JSON files the agent can access.
 </div>
 
-### What This Means
+### Call to Action: Designing Benchmarks That Resist Reward Hacking
 
-Broken benchmarks don't just produce wrong leaderboards — they poison training signals, inflate data pricing, and mislead deployment decisions. If nobody audits the evaluation infrastructure, everything built on top of it is unreliable.
+If your benchmark is exploitable, it will be exploited.
 
-Our agent found 45 confirmed exploits that human reviewers missed — not because they were subtle, but because nobody was looking. The tools and methodology are open source at [github.com/moogician/trustworthy-env](https://github.com/moogician/trustworthy-env).
+Design evaluations with this assumption: separate specification from scoring, verify results beyond a single metric, and actively look for shortcut behavior in high-performing outputs. A trustworthy benchmark doesn’t just measure success — it makes it harder to cheat than to solve the task correctly. Broken benchmarks don't just produce wrong leaderboards — they poison training signals, inflate data pricing, and mislead deployment decisions. If nobody audits the evaluation infrastructure, everything built on top of it is unreliable.
+
+Our agent found 45 confirmed hacking solutions that human reviewers missed — not because they were subtle, but because nobody was looking. 
+The tools and methodology are open source at [github.com/moogician/trustworthy-env](https://github.com/moogician/trustworthy-env).
