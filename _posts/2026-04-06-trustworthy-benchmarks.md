@@ -45,8 +45,6 @@ We built an AI agent that analyzes benchmark evaluation code in depth and automa
 
 The 45 confirmed hacking solutions each come with a working proof-of-concept — code that achieves inflated or perfect scores without solving the actual task. They affect benchmarks used to evaluate everything from code generation to web navigation to general-purpose AI assistants.
 
-We also cataloged **50 known issues** across Terminal-Bench, SWE-bench, and KernelBench from public GitHub issues and papers. Our dual detection pipeline — one LLM-based, one formal — achieved **100% detection rate** on all 50 after iterative improvement.
-
 ### How We Found Them
 
 We used a **fully automated** hybrid agent that, with zero human intervention, scans benchmark repos, identifies potential vulnerabilities, generates working exploit code, and verifies results end-to-end. **Manual auditing doesn't scale** — a human expert might spend days on a single evaluation harness, and we needed to cover 13 benchmarks with hundreds of scoring scripts each.
@@ -174,11 +172,31 @@ class CheatingAgent:
 <strong>Root cause:</strong> Reference answers stored in agent-accessible filesystem with no integrity protection. The evaluator reads from the same JSON files the agent can access.
 </div>
 
-### Call to Action: Designing Benchmarks That Resist Reward Hacking
+### Designing Benchmarks that Resist Reward Hacking
 
 If your benchmark is exploitable, it will be exploited.
 
-Design evaluations with this assumption: separate specification from scoring, verify results beyond a single metric, and actively look for shortcut behavior in high-performing outputs. A trustworthy benchmark doesn’t just measure success — it makes it harder to cheat than to solve the task correctly. Broken benchmarks don't just produce wrong leaderboards — they poison training signals, inflate data pricing, and mislead deployment decisions. If nobody audits the evaluation infrastructure, everything built on top of it is unreliable.
+Across 13 benchmarks and 45 confirmed hacking solutions, we identified 16 distinct attack types — from weak test assertions and answer leakage to shared address spaces and score injection. They cluster into a few recurring design failures. Here’s how to avoid them.
+
+#### Isolate everything that scores from everything being scored
+The most common pattern we exploited was submissions running in the same process, container, or filesystem as the evaluator. If submitted code can read reference answers, overwrite baseline files, monkey-patch scoring functions, or inject output into the evaluator’s stdout — it will. Run evaluator and submission in separate containers with no shared state. Mount all reference and baseline files as read-only. Checksum them before and after each run.
+
+#### Never trust output from the code you’re evaluating
+Self-reported metrics, timing measurements controlled by the submission, and loosely parsed evaluator output are all attack surfaces. The evaluator must independently compute every score from raw outputs. Parse results with a strict schema. Measure performance from outside the submission process. Treat anything the submission produces as untrusted input.
+
+#### Test the tests, not just the submissions
+Many of our exploits passed because the tests were weaker than the task description. Run every test suite against a trivial or null submission first — if it passes, the tests are broken. Add adversarial negative cases that *should* fail. Cross-check that every requirement in the spec has a corresponding assertion. If the task says "write C code," verify the C code is actually called, not just that a `.so` file exists.
+
+#### Make tolerances and baselines honest
+Loose numerical tolerances, naive baselines, and precision mismatches between reference and submitted answers all create room for inflated scores without real capability. Tighten thresholds to match actual task difficulty. Use independently verified, competitive baselines. Enforce identical precision settings on both sides. Report confidence intervals, not just point estimates.
+
+#### Treat evaluation code as production code
+Two of our attack types exploited outright bugs in evaluation scripts — logic errors that gave full marks to wrong answers. Fuzz your evaluation scripts. Run them on intentionally wrong submissions and verify they produce failing scores. Review eval code with the same rigor you’d apply to any production system, because the decisions built on its output are production decisions.
+
+### Takeaway
+
+A trustworthy benchmark doesn’t just measure success — it makes it harder to cheat than to solve the task correctly. Broken benchmarks don’t just produce wrong leaderboards — they poison training signals, inflate data pricing, and mislead deployment decisions. If nobody audits the evaluation infrastructure, everything built on top of it is unreliable.
 
 Our agent found 45 confirmed hacking solutions that human reviewers missed — not because they were subtle, but because nobody was looking. 
 The tools and methodology are open source at [github.com/moogician/trustworthy-env](https://github.com/moogician/trustworthy-env).
+Try it out for your own benchmark today!
