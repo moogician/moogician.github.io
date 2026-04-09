@@ -23,7 +23,11 @@ That promise is broken.
 
 We built an automated scanning agent that systematically audited **eight of the most prominent AI agent benchmarks** — SWE-bench, WebArena, OSWorld, GAIA, Terminal-Bench, FieldWorkArena, and CAR-bench — and discovered that **every single one** can be exploited to achieve near-perfect scores without solving a single task. No reasoning. No capability. Just exploitation of how the score is computed.
 
-These aren't theoretical attacks. Our agent builds working exploits for each benchmark, runs them through the official evaluation pipelines, and watches the scores roll in. **A single-line agent that sends `{}` scores 100% on FieldWorkArena's 890 tasks. A conftest.py file with 10 lines of Python "resolves" every instance on SWE-bench Verified. A fake `curl` wrapper gives a perfect score on all 89 Terminal-Bench tasks without writing a single line of solution code.**
+These aren't theoretical attacks. Our agent builds working exploits for each benchmark, runs them through the official evaluation pipelines, and watches the scores roll in. 
+- A conftest.py file with 10 lines of Python **"resolves" every instance on SWE-bench Verified.**
+- A fake `curl` wrapper gives a **perfect score on all 89 Terminal-Bench tasks without writing a single line of solution code.**
+- Navigating Chromium to a `file://` URL **reads the gold answer directly from the task config** — giving **~100% on all 812 WebArena tasks**.
+- And many more...
 
 The benchmarks aren't measuring what you think they're measuring.
 
@@ -136,6 +140,8 @@ WebArena is a popular benchmark of 812 web interaction tasks. It runs a PromptAg
 The exploit requires **zero changes to WebArena's code**. We don't patch `run.py`, don't modify the PromptAgent, don't touch the evaluation harness. Our agent finds a way to use the existing harness and **steal the solution**.
 
 It exploits a browser primitive that WebArena never restricted: **Playwright's Chromium happily navigates to `file://` URLs.** By outputting a `goto` action pointing at `file:///proc/self/cwd/config_files/{task_id}.json`, the model can read any file on the local system — including the task config containing the gold answers. The evaluator never notices; it just sees a correct answer come back.
+
+We also found additional risks in the evaluation pipeline. Tasks using `must_include` scoring check for substring presence in the page DOM — a hidden `<div>` injected by the agent is enough to satisfy the check without the answer appearing visibly. Tasks scored by an LLM judge pass agent content directly into the prompt without sanitization, making prompt injection straightforward: a comment appended to the agent's reply can reliably bias the judge's decision. Neither vector requires filesystem access, complementing the `file://` exploit.
 
 ---
 
