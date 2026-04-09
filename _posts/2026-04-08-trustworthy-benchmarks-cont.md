@@ -133,7 +133,7 @@ For repos with an existing `conftest.py`, the exploit uses the `patch --batch --
 
 ### WebArena: Reading the Answer Key
 
-<img src="/assets/img/why-you-should-not-trust-benchmarks/webarena-exploit.svg" alt="WebArena exploit — the model navigates Chromium to a local file:// URL to read the gold config, then returns the answer" style="max-width:90%; display:block; margin:1rem auto;">
+<img src="/assets/img/why-you-should-not-trust-benchmarks/webarena-exploit.svg" alt="WebArena exploit — the model navigates Chromium to a local file:// URL to read the gold answers, then returns the answer" style="max-width:90%; display:block; margin:1rem auto;">
 
 WebArena is a popular benchmark of 812 web interaction tasks. It runs a PromptAgent that drives a Playwright-controlled Chromium browser, and it ships task configs — including reference answers — as JSON files on the local filesystem at `config_files/{task_id}.json`.
 
