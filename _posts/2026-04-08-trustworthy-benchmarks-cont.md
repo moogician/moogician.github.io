@@ -329,22 +329,22 @@ And if you're building a benchmark: assume someone will try to break it. Because
 
 ---
 
-## WEASEL: An Agent Benchmark Vulnerability Scanner
+## BenchJack: An Agent Benchmark Vulnerability Scanner
 
-The automated scanning agent we used to uncover these vulnerabilities is being developed into **WEASEL** (**W**eakness **E**valuator for **A**gent **S**coring, **E**xploitation, and **L**oopholes), a general-purpose agent benchmark vulnerability scanner. WEASEL is itself an AI agent — you point it at any evaluation pipeline and it goes to work.
+The automated scanning agent we used to uncover these vulnerabilities is being developed into **BenchJack**, a general-purpose agent benchmark vulnerability scanner. BenchJack is itself an AI agent — you point it at any evaluation pipeline and it goes to work.
 
-WEASEL operates in two phases. First, it **probes and understands** the benchmark: it analyzes the evaluation code, maps out the scoring mechanism, identifies isolation boundaries, and catalogs every potential loophole. Then, it **automatically crafts end-to-end exploits** that manifest each discovered loophole into a working attack. 
-The result is not a theoretical vulnerability report — it's a concrete, runnable exploit agent that demonstrates exactly how a zero-capability agent can inflate its score through each weakness. If WEASEL's exploit agent scores above baseline, your benchmark has a problem, and WEASEL shows you exactly where and how.
+BenchJack operates in two phases. First, it **probes and understands** the benchmark: it analyzes the evaluation code, maps out the scoring mechanism, identifies isolation boundaries, and catalogs every potential loophole. Then, it **automatically crafts end-to-end exploits** that manifest each discovered loophole into a working attack. 
+The result is not a theoretical vulnerability report — it's a concrete, runnable exploit agent that demonstrates exactly how a zero-capability agent can inflate its score through each weakness. If BenchJack's exploit agent scores above baseline, your benchmark has a problem, and BenchJack shows you exactly where and how.
 Think of it as a penetration test for your benchmark — it finds the holes before a leaderboard-gaming agent does.
 
 
 
-We envision WEASEL becoming a standard step in the benchmark development lifecycle: run it before you publish, run it after every update, and use it to validate that your Agent-Eval Checklist items actually hold. The goal is to make adversarial robustness testing as routine as unit testing.
+We envision BenchJack becoming a standard step in the benchmark development lifecycle: run it before you publish, run it after every update, and use it to validate that your Agent-Eval Checklist items actually hold. The goal is to make adversarial robustness testing as routine as unit testing.
 
-We're preparing WEASEL for public release. If you're a benchmark developer who wants to harden your evaluation, a researcher who wants to audit your own benchmarks, or simply someone who wants to stay informed, **sign up for our mailing list** to be notified when it's available:
+We're preparing BenchJack for public release. If you're a benchmark developer who wants to harden your evaluation, a researcher who wants to audit your own benchmarks, or simply someone who wants to stay informed, **sign up for our mailing list** to be notified when it's available:
 
 <p style="text-align:center; margin:1.5rem 0;">
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0G1FmD9rTG1bN5H03rV86XJ-t0O41FK4xTXsgOisalCjXng/viewform?usp=dialog" target="_blank" style="display:inline-block; padding:12px 28px; background:#2563eb; color:#fff; font-weight:600; border-radius:6px; text-decoration:none; font-size:1.05rem;">Sign Up for WEASEL Updates &rarr;</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0G1FmD9rTG1bN5H03rV86XJ-t0O41FK4xTXsgOisalCjXng/viewform?usp=dialog" target="_blank" style="display:inline-block; padding:12px 28px; background:#2563eb; color:#fff; font-weight:600; border-radius:6px; text-decoration:none; font-size:1.05rem;">Sign Up for BenchJack Updates &rarr;</a>
 </p>
 
-We believe every benchmark should be adversarially tested before it's used to make decisions. WEASEL is how we make that easy.
+We believe every benchmark should be adversarially tested before it's used to make decisions. BenchJack is how we make that easy.
