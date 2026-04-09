@@ -49,7 +49,7 @@ The 45 confirmed hacking solutions each come with a working proof-of-concept —
 
 We used a **fully automated** hybrid agent that, with zero human intervention, scans benchmark repos, identifies potential vulnerabilities, generates working exploit code, and verifies results end-to-end. **Manual auditing doesn't scale** — a human expert might spend days on a single evaluation harness, and we needed to cover 13 benchmarks with hundreds of scoring scripts each.
 
-The agent runs a dual detection pipeline. The **LLM Detector** uses 15 specialized scanners that reason about code intent — cross-referencing task descriptions with test logic to catch semantic gaps like spec mismatches and answer leakage. The **Formal Detector** uses 12 analysis modules built on AST parsing, data-flow analysis, and z3 SMT solving to catch structural issues without any language model. Both were iteratively improved to **100% detection** on a 50-issue catalog.
+The agent runs a dual detection pipeline. The **LLM Detector** uses 15 specialized scanners that reason about code intent — cross-referencing task descriptions with test logic to catch semantic gaps like spec mismatches and answer leakage. The **Formal Detector** uses 12 analysis modules built on AST parsing, data-flow analysis, and z3 SMT solving to catch structural issues without any language model.
 
 The full system is an 8-stage audit pipeline:
 
