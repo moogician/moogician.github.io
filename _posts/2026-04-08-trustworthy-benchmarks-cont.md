@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Benchmark Trap: Why AI Agent Scores can Lie"
+title: "How We Broke Top AI Agent Benchmarks: And What Comes Next"
 date: 2026-04-08
 author: "Hao Wang, Qiuyang Mang, Alvin Cheung, Koushik Sen, Dawn Song"
 description: "We hacked every major AI agent benchmark. Here's how — and what the field needs to fix."
