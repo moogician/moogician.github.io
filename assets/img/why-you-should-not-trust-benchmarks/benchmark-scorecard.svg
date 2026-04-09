@@ -4,13 +4,33 @@
    font-family="'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif"
    version="1.1"
    id="svg37"
-   sodipodi:docname="benchmark-scorecard.svg"
+   sodipodi0:docname="benchmark-scorecard.svg"
    inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="benchmark-scorecard.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.0"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi0="http://sodipodi.sourceforge.net/DTD/sodipodi-0.0">
   <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.91666667"
+     inkscape:cx="711.81818"
+     inkscape:cy="245.45455"
+     inkscape:window-width="1024"
+     inkscape:window-height="937"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg37" />
+  <sodipodi0:namedview
      id="namedview37"
      pagecolor="#ffffff"
      bordercolor="#000000"
@@ -343,16 +363,16 @@
      opacity="0.8"
      id="rect31" />
   <text
-     x="769"
+     x="778.81818"
      y="371"
-     fill="#7C3010"
-     font-size="12"
+     fill="#7c3010"
+     font-size="12px"
      font-weight="700"
      id="text32">~98%</text>
   <text
-     x="814.49945"
+     x="823.22668"
      y="370.16684"
-     fill="#9C8F7A"
+     fill="#9c8f7a"
      font-size="10.5px"
      id="text33">(165 tasks)</text>
   <!-- OSWorld - 73% -->
@@ -374,16 +394,16 @@
      opacity="0.75"
      id="rect34" />
   <text
-     x="612"
+     x="618.54547"
      y="413"
-     fill="#7A5800"
-     font-size="12"
+     fill="#7a5800"
+     font-size="12px"
      font-weight="700"
      id="text35">73%</text>
   <text
-     x="647.33264"
+     x="652.78723"
      y="412.16684"
-     fill="#9C8F7A"
+     fill="#9c8f7a"
      font-size="10.5px"
      id="text36">(270/369 tasks)</text>
   <!-- Zero capability label -->
