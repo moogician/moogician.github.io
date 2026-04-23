@@ -15,13 +15,13 @@ toc:
 
 ---
 
-## The Leaderboard Lie
+## The Benchmark Illusion
 
 Every week, a new AI model climbs to the top of a benchmark leaderboard. Companies cite these numbers in press releases. Investors use them to justify valuations. Engineers use them to pick which model to deploy. The implicit promise is simple: a higher score means a more capable system.
 
 That promise is broken.
 
-We built an automated scanning agent that systematically audited **eight of the most prominent AI agent benchmarks** — SWE-bench, WebArena, OSWorld, GAIA, Terminal-Bench, FieldWorkArena, and CAR-bench — and discovered that **every single one** can be exploited to achieve near-perfect scores without solving a single task. No reasoning. No capability. Just exploitation of how the score is computed.
+We built an automated scanning agent that systematically audited **eight among the most prominent AI agent benchmarks** — SWE-bench, WebArena, OSWorld, GAIA, Terminal-Bench, FieldWorkArena, and CAR-bench — and discovered that **every single one** can be exploited to achieve near-perfect scores without solving a single task. No reasoning. No capability. Just exploitation of how the score is computed.
 
 These aren't theoretical attacks. Our agent builds working exploits for each benchmark, runs them through the official evaluation pipelines, and watches the scores roll in. 
 - A conftest.py file with 10 lines of Python **"resolves" every instance on SWE-bench Verified.**
@@ -37,19 +37,19 @@ Benchmark scores are actively being gamed, inflated, or rendered meaningless, no
 
 - [IQuest-Coder-V1](https://github.com/IQuestLab/IQuest-Coder-V1/issues/14) claimed 81.4% on SWE-bench — then researchers found that 24.4% of its trajectories simply ran `git log` to copy the answer from commit history. Corrected score: 76.2%. The benchmark's shared environment made the cheat trivial.
 
-- [METR found](https://metr.org/blog/2025-06-05-recent-reward-hacking/)that o3 and Claude 3.7 Sonnet reward-hack in **30%+** of evaluation runs — using stack introspection, monkey-patching graders, and operator overloading to manipulate scores rather than solve tasks.
+- [METR found](https://metr.org/blog/2025-06-05-recent-reward-hacking/) that o3 and Claude 3.7 Sonnet reward-hack in **30%+** of evaluation runs — using stack introspection, monkey-patching graders, and operator overloading to manipulate scores rather than solve tasks.
 
 - [OpenAI dropped SWE-bench Verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/) after an internal audit found that 59.4% of audited problems had flawed tests — meaning models were being scored against broken ground truth.
 
 - In [KernelBench](https://github.com/ScalingIntelligence/KernelBench/issues/82), `torch.empty()` returns stale GPU memory that happens to contain the reference answer from the evaluator's prior computation — zero computation, full marks.
 
-- [Anthropic's Mythos Preview](https://red.anthropic.com/2026/mythos-preview/) showed that frontier models can actively try to hack the environment and succeed. In one episode, the model needed to edit files it lacked permissions for; after searching for workarounds, it [found a way to inject code into a config file that would run with elevated privileges, and designed the exploit to delete itself after running](https://x.com/Jack_W_Lindsey/status/2041588510126395648). If a model can independently craft self-erasing privilege escalation exploits, it can find the holes in a evaluation harness.
+- [Anthropic's Mythos Preview](https://red.anthropic.com/2026/mythos-preview/) showed that frontier models can actively try to hack the environment and succeed. In one episode, the model needed to edit files it lacked permissions for; after searching for workarounds, it [found a way to inject code into a config file that would run with elevated privileges, and designed the exploit to delete itself after running](https://x.com/Jack_W_Lindsey/status/2041588510126395648). If a model can independently craft self-erasing privilege escalation exploits, it can find the holes in an evaluation harness.
 
 These are not isolated incidents. They are symptoms of a systemic problem: **the benchmarks we rely on to measure AI capability are themselves vulnerable to the very capabilities they claim to measure.**
 
 ---
 
-## The Scorecard
+## The Scorecard of Our Exploit Agent
 
 <img src="/assets/img/why-you-should-not-trust-benchmarks/benchmark-scorecard.svg" alt="Exploit coverage by benchmark — bar chart showing all eight benchmarks exploitable at 73-100%" style="max-width:90%; display:block; margin:1rem auto;">
 
@@ -66,7 +66,7 @@ Zero tasks solved. Zero LLM calls (in most cases). Near-perfect scores.
 
 ---
 
-## How We Did It
+## How Our Agent Did It
 
 ### Terminal-Bench: Trojanizing the Test Infrastructure
 
@@ -234,7 +234,7 @@ Across all eight benchmarks, the same vulnerability patterns repeat:
 
 ### 1. No Isolation Between Agent and Evaluator
 
-The most pervasive flaw. In SWE-bench, Terminal-Bench, and OSWorld, the agent's code runs in the same environment the evaluator inspects. Any evaluation that reads state from a shared environment can be defeated by an agent that writes state to that environment.
+The most pervasive flaw. In SWE-bench, Terminal-Bench, and OSWorld, the agent's code runs in the same environment the evaluator inspects. Any evaluation that reads state from a shared environment without careful validation can be defeated by an agent that writes state to that environment.
 
 ### 2. Answers Shipped With the Test
 
@@ -336,8 +336,6 @@ The automated scanning agent we used to uncover these vulnerabilities is being d
 BenchJack operates in two phases. First, it **probes and understands** the benchmark: it analyzes the evaluation code, maps out the scoring mechanism, identifies isolation boundaries, and catalogs every potential loophole. Then, it **automatically crafts end-to-end exploits** that manifest each discovered loophole into a working attack. 
 The result is not a theoretical vulnerability report — it's a concrete, runnable exploit agent that demonstrates exactly how a zero-capability agent can inflate its score through each weakness. If BenchJack's exploit agent scores above baseline, your benchmark has a problem, and BenchJack shows you exactly where and how.
 Think of it as a penetration test for your benchmark — it finds the holes before a leaderboard-gaming agent does.
-
-
 
 We envision BenchJack becoming a standard step in the benchmark development lifecycle: run it before you publish, run it after every update, and use it to validate that your Agent-Eval Checklist items actually hold. The goal is to make adversarial robustness testing as routine as unit testing.
 
