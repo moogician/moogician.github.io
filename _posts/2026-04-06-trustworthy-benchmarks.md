@@ -198,5 +198,5 @@ Two of our attack types exploited outright bugs in evaluation scripts — logic 
 A trustworthy benchmark doesn’t just measure success — it makes it harder to cheat than to solve the task correctly. Broken benchmarks don’t just produce wrong leaderboards — they poison training signals, inflate data pricing, and mislead deployment decisions. If nobody audits the evaluation infrastructure, everything built on top of it is unreliable.
 
 Our agent found 45 confirmed hacking solutions that human reviewers missed — not because they were subtle, but because nobody was looking. 
-The tools and methodology are open source at [github.com/moogician/trustworthy-env](https://github.com/moogician/trustworthy-env).
+The tools and methodology are open source at [github.com/benchjack/benchjack](https://github.com/benchjack/benchjack).
 Try it out for your own benchmark today!
