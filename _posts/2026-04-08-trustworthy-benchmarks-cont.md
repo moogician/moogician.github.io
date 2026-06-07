@@ -13,6 +13,8 @@ toc:
 
 *Our agent hacked every major one. Here's how — and what the field needs to fix.*
 
+*Read the full paper on arXiv: [arxiv.org/abs/2605.12673](https://arxiv.org/abs/2605.12673).*
+
 ---
 
 ## The Benchmark Illusion
