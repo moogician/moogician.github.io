@@ -21,6 +21,52 @@ table {
     }
 }
 
+// Polished tables inside blog post content
+.post-content {
+  // horizontal scroll wrapper for wide tables on narrow screens
+  table {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 1.75rem auto;
+    border-collapse: collapse;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+
+    th, td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--global-divider-color);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    thead th {
+      background-color: var(--global-code-bg-color);
+      font-weight: 600;
+      white-space: nowrap;
+      border-bottom: 2px solid var(--global-divider-color);
+    }
+
+    tbody tr {
+      transition: background-color 0.15s ease;
+
+      &:nth-child(even) {
+        background-color: var(--global-code-bg-color);
+      }
+      &:hover {
+        background-color: var(--global-divider-color);
+      }
+      &:last-child td {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
 a, table.table a {
   color: var(--global-theme-color);
   &:hover {
