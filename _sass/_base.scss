@@ -156,6 +156,9 @@ blockquote {
 @media (min-width: 576px) {
   .profile {
     width: 30%;
+    // Pull the floated profile up so its top sits closer to the page
+    // title instead of the first line of body text. Tune to taste.
+    margin-top: -3rem;
     .address {
       p { display: block; }
     }
