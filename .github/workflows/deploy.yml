@@ -20,6 +20,8 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.3.5'
+    - name: Install ImageMagick (with webp support)
+      run: sudo apt-get update && sudo apt-get install -y imagemagick webp
     - name: Enable bundler cache
       uses: actions/cache@v4
       with:
